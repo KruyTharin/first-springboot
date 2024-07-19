@@ -1,4 +1,4 @@
-package com.example.first_springboot.student;
+package com.example.first_springboot.Car;
 
 import jakarta.persistence.*;
 

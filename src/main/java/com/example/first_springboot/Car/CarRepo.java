@@ -1,4 +1,4 @@
-package com.example.first_springboot.student;
+package com.example.first_springboot.Car;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

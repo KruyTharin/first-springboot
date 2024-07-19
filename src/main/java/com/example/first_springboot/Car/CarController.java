@@ -1,4 +1,4 @@
-package com.example.first_springboot.student;
+package com.example.first_springboot.Car;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
