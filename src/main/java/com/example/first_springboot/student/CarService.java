@@ -40,6 +40,24 @@ public class CarService {
         }
     }
 
+    public ResponseEntity<Car> getCarByName(@PathVariable String name) {
+        Optional<Car> carObj = carRepo.findCarByName(name);
+        if (carObj.isPresent()) {
+            return new ResponseEntity<>(carObj.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    public ResponseEntity<List<Car>> getCarsByWheels(@PathVariable String  wheels) {
+        List<Car> cars = carRepo.findAllCarByWheels(wheels);
+        if (!cars.isEmpty()) {
+            return new ResponseEntity<>(cars, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     public ResponseEntity<Car> AddCar(@RequestBody Car car) {
         try {
             Car carObj = carRepo.save(car);

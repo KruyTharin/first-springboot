@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v1/cars")
+@CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
 public class CarController {
     private final CarService carService;
 
@@ -25,9 +26,10 @@ public class CarController {
         return carService.getAllCars();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Car> getCarById(@PathVariable Long id) {
-        return  carService.getCarById(id);
+
+    @GetMapping("/{name}")
+    public ResponseEntity<Car> getCarByName(@PathVariable String name) {
+        return  carService.getCarByName(name);
     }
 
     @PostMapping("/add")
@@ -50,5 +52,11 @@ public class CarController {
     @DeleteMapping("/deleteAll")
     public ResponseEntity<HttpStatus> deleteAllCars() {
        return  carService.deleteAllCar();
+    }
+
+
+    @GetMapping("/wheels/{wheels}")
+    public ResponseEntity<List<Car>> getCarsByWheels(@PathVariable String  wheels) {
+     return  carService.getCarsByWheels(wheels);
     }
 }
